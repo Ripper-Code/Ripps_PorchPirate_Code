@@ -55,7 +55,7 @@ void loop() {
   
   // Check if a second has passed
   unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis >= 1000) { // Read sensor every second (1000 milliseconds)
+  if (currentMillis - previousMillis >= 5000) { // Read sensor every 5 seconds (5000 milliseconds)
     previousMillis = currentMillis;
 
     // Calculate time in hours, minutes, and seconds
@@ -95,7 +95,7 @@ void loop() {
     // Log the system state
     tiltState = digitalRead(tilt_pin);
     if (systemState == 1) { 
-      // Output "System Armed" for Armed state
+      Serial.print("System Armed, ");// Output "System Armed" for Armed state
     } else {
       Serial.print("System Disarmed, "); // Output "System Disarmed" for Disarmed state
     }
